@@ -1,6 +1,6 @@
 package CGIS;
 
-# $Id: CGIS.pm,v 1.4 2002/12/17 20:37:28 sherzodr Exp $
+# $Id: CGIS.pm,v 1.5 2002/12/18 02:03:30 sherzodr Exp $
 
 use strict;
 use warnings;
@@ -9,7 +9,7 @@ require CGI;
 @ISA = ('CGI');
 
 
-($CGIS::VERSION) = '$Revision: 1.4 $' =~ m/Revision:\s*(\S+)/;
+($CGIS::VERSION) = '$Revision: 1.5 $' =~ m/Revision:\s*(\S+)/;
 
 # Preloaded methods go here.
 
@@ -22,6 +22,7 @@ sub session {
         $session_obj = new CGI::Session(undef, $self, 
                                 {Directory=>$CGITempFile::TMPDIRECTORY});
         $self->{_SESSION_OBJ} = $session_obj;
+        $self->param($session_obj->name, $session_obj->id);
     }
 
     unless ( @_ ) {
