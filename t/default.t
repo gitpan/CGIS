@@ -15,13 +15,11 @@ ok(1); # If we made it this far, we're ok.
 # Insert your test code below, the Test module is use()ed here so read
 # its man page ( perldoc Test ) for help writing this test script.
 
-$CGITempFile::TMPDIRECTORY = 't';
-
-my $cgi = new CGIS;
+my $cgi = new CGIS();
 ok($cgi);
-
 my $session = $cgi->session();
 ok($session);
 ok(ref($session), 'CGI::Session::File');
 
 $session->delete();
+

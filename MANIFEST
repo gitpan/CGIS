@@ -1,7 +1,8 @@
 CGIS.pm
 Changes
-MANIFEST
+MANIFEST			This list of files
 MANIFEST.SKIP
 Makefile.PL
 README
+examples/cgis.cgi
 t/default.t
